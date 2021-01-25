@@ -1,0 +1,19 @@
+@import "./variables";
+
+.youtube {
+	.scrollbar-none::-webkit-scrollbar {
+		display: none;
+	}
+	.overflow-y-auto::-webkit-scrollbar {
+		width: 6px;
+	}
+	.overflow-x-auto,
+	.overflow-y-auto {
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(white, 0.08);
+			&:hover {
+				background-color: rgba(white, 0.16);
+			}
+		}
+	}
+}
