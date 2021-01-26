@@ -28,8 +28,13 @@ const routes: Array<RouteConfig> = [
 						children: [
 							{
 								path: '',
-								name: 'Youtube',
+								name: 'YTContent',
 								component: view('apps/cloned/youtube/Index'),
+							},
+							{
+								path: 'watch',
+								name: 'YTWatch',
+								component: view('apps/cloned/youtube/Watch'),
 							}
 						]
 					},

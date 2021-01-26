@@ -12,3 +12,17 @@ export enum mse {
 	month = 2592000000,
 	year = 31536000000,
 };
+
+export enum bps {
+	xs = 0,
+	sm = 640,
+	md = 768,
+	lg = 1024,
+	xl = 1280,
+	xxl = 1536
+}
+
+export enum yt {
+	watchSidebarWidth = 448,
+	miniSidebarWidth = 64,
+}

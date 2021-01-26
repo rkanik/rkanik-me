@@ -73,6 +73,7 @@ export default {
 			channel,
 			id: video.id,
 			title: video.snippet.title,
+			frame: video.player.embedHtml,
 			thumbnail: thumbnail(video.snippet.thumbnails),
 			duration: duration(video.contentDetails.duration),
 			views: views(video.statistics.viewCount),

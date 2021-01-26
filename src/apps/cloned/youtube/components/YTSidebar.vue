@@ -1,8 +1,19 @@
 <template>
-	<div class="yt-bg-secondary w-60 flex-none overflow-y-auto">
+	<div
+		class="fixed inset-y-0 z-10 lg:left-0 lg:relative yt-bg-secondary flex-none overflow-x-hidden overflow-y-auto transition-left"
+		:class="classes"
+	>
+		<div class="px-4 my-2 lg:hidden">
+			<TIconButton
+				@click="$emit('menu')"
+				md-icon="arrow_back"
+				class="mr-4"
+			/>
+		</div>
 		<div class="main-navs">
 			<YTSidebarItem
 				v-for="nav in mainNavs"
+				:type="type"
 				:key="nav.name"
 				:md-icon="nav.icon"
 				:text="nav.name"
@@ -14,6 +25,7 @@
 		<div class="user-navs">
 			<YTSidebarItem
 				v-for="nav in userNavs"
+				:type="type"
 				:key="nav.name"
 				:md-icon="nav.icon"
 				:text="nav.name"
@@ -24,12 +36,14 @@
 		<hr class="border-t-1 yt-border-secondary my-4" />
 		<div class="subscriptions">
 			<div
+				v-if="type !== 'mini'"
 				class="flex items-center px-6 h-6 mb-2 text-sm uppercase font-bold yt-text-secondary"
 			>
 				SUBSCRIPTIONS
 			</div>
 			<YTSidebarItem
 				:key="ci"
+				:type="type"
 				:src="channel.thumb"
 				:text="channel.name"
 				v-for="(channel, ci) in subscriptions"
@@ -38,22 +52,24 @@
 		<hr class="border-t-1 yt-border-secondary my-4" />
 		<div class="more-from-youtube">
 			<div
+				v-if="type !== 'mini'"
 				class="flex items-center px-6 h-6 mb-2 text-sm uppercase font-bold yt-text-secondary"
 			>
 				MORE FROM YOUTUBE
 			</div>
-			<YTSidebarItem md-icon="sports_esports" text="Gaming" />
+			<YTSidebarItem :type="type" md-icon="sports_esports" text="Gaming" />
 			<YTSidebarItem md-icon="wifi" text="Live" />
 		</div>
 		<hr class="border-t-1 yt-border-secondary my-4" />
 		<div class="settings">
-			<YTSidebarItem md-icon="settings" text="Settings" />
-			<YTSidebarItem md-icon="flag" text="Report history" />
-			<YTSidebarItem md-icon="help" text="Help" />
-			<YTSidebarItem md-icon="feedback" text="Send Feedback" />
+			<YTSidebarItem :type="type" md-icon="settings" text="Settings" />
+			<YTSidebarItem :type="type" md-icon="flag" text="Report history" />
+			<YTSidebarItem :type="type" md-icon="help" text="Help" />
+			<YTSidebarItem :type="type" md-icon="feedback" text="Send Feedback" />
 		</div>
-		<hr class="border-t-1 yt-border-secondary my-4" />
+		<hr v-if="type !== 'mini'" class="border-t-1 yt-border-secondary my-4" />
 		<div
+			v-if="type !== 'mini'"
 			class="px-6 flex flex-wrap font-bold yt-text-secondary"
 			style="font-size: 13px"
 		>
@@ -66,6 +82,7 @@
 			<a href="#" class="px-1">Developers</a>
 		</div>
 		<div
+			v-if="type !== 'mini'"
 			class="mt-3 pl-6 flex flex-wrap font-bold yt-text-secondary"
 			style="font-size: 13px"
 		>
@@ -75,7 +92,7 @@
 			<a href="#" class="px-1">How Youtube works</a>
 			<a href="#" class="px-1">Test new features</a>
 		</div>
-		<div class="px-6 py-4">
+		<div v-if="type !== 'mini'" class="px-6 py-4">
 			<p class="yt-text-disabled" style="font-size: 12px">
 				© 2021 Google LLC
 			</p>
@@ -91,6 +108,19 @@ import YTSidebarItem from "./YTSidebarItem.vue";
 
 export default Vue.extend({
 	name: "YTSidebar",
+	props: {
+		type: {
+			type: String,
+			default: "full",
+			validator(v) {
+				return ["full", "mini", "fixed"].includes(v);
+			},
+		},
+		expanded: {
+			type: Boolean,
+			default: false,
+		},
+	},
 	components: {
 		YTSidebarItem,
 	},
@@ -176,6 +206,16 @@ export default Vue.extend({
 				},
 			],
 		};
+	},
+	computed: {
+		classes() {
+			return {
+				"w-60": ["full", "fixed"].includes(this.type),
+				"w-16 scrollbar-thin": this.type === "mini",
+				"-left-60": !this.expanded,
+				"left-0 shadow-xl": this.expanded,
+			};
+		},
 	},
 });
 </script>

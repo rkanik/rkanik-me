@@ -1,5 +1,7 @@
 <template>
-	<div class="py-4 px-6 border yt-bg-secondary yt-border-secondary-2">
+	<div
+		class="py-3 px-4 2xl:py-4 2xl:px-6 border yt-bg-secondary yt-border-secondary-2"
+	>
 		<Flex items-center>
 			<router-link to="#" class="flex-none">
 				<TImage
@@ -16,7 +18,7 @@
 			</p>
 		</Flex>
 		<Flex items-center justify-between class="mt-4 space-x-2">
-			<p style="font-size: 0.95em">
+			<p class="text-sm 2xl:text-base">
 				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
 				quasi ab, dicta eos eveniet optio.
 			</p>

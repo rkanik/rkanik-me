@@ -3,7 +3,9 @@
 		@click="$emit('click', $event)"
 		class="t-icon-button h-10 w-10 p-1 relative bg-transparent rounded-full flex justify-center items-center"
 	>
-		<i v-if="mdIcon" class="material-icons">{{ mdIcon }}</i>
+		<i v-if="mdIcon" class="material-icons" :class="iconClass">{{
+			mdIcon
+		}}</i>
 		<img v-if="src" class="h-full w-full rounded-full" :src="src" />
 		<slot></slot>
 	</button>
@@ -20,6 +22,10 @@ export default {
 		src: {
 			default: false,
 			type: [String, Boolean],
+		},
+		iconClass: {
+			default: '',
+			type: String
 		}
 	},
 };

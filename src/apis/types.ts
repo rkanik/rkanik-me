@@ -14,5 +14,7 @@ export interface YTVideos {
 	id?: string,
 	chart?: string,
 	maxResults?: number,
-	pageToken?: string
+	pageToken?: string,
+	maxWidth?: number,
+	maxHeight?: number
 }

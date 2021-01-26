@@ -1,0 +1,29 @@
+.va-flexible-sidebar {
+   position: fixed;
+   top: 0;
+   left: -16rem;
+   width: 16rem;
+   height: 100vh;
+   background-color: white;
+   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.25);
+   z-index: 100;
+   box-sizing: border-box;
+   .va-flexible-sidebar-toggler {
+      height: 3rem;
+      width: 3rem;
+      background-color: #42b983;
+      border-radius: 50%;
+      position: absolute;
+      left: calc(216px + 1.5rem);
+      top: 1.5rem;
+      z-index: 10;
+      cursor: pointer;
+      span {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         color: white;
+      }
+   }
+}

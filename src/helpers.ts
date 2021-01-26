@@ -1,4 +1,4 @@
-import { mse } from '@/consts'
+import { mse, bps } from '@/consts'
 
 const units = [
 	['second', 1000],
@@ -9,7 +9,7 @@ const units = [
 	['year', 31536000000],
 ]
 
-const getPairs = (arr: any[]): any => {
+const getPairs = (arr: any[]): any[][] => {
 	let start = 0, pairs = []
 	while (start < (arr.length - 1)) {
 		pairs.push([arr[start], arr[start + 1]])
@@ -19,6 +19,7 @@ const getPairs = (arr: any[]): any => {
 }
 
 const unitMsPairs = getPairs(units)
+const bpPairs = getPairs([0, 640, 768, 1024, 1280, 1536])
 
 export const view = (name: string) => () => import(`@/views/${name}.vue`)
 export const layout = (name: string) => () => import(`@/layouts/${name}.vue`)
@@ -44,3 +45,29 @@ export const howAgo = (time: string) => {
 			? '1 year ago'
 			: `${Math.floor(diff / mse.year)} years ago`;
 };
+
+/**
+ *
+ * @param {[number, number]} range
+ * @param {number} size
+ * @returns {boolean}
+ */
+export const between = (range: [number, number], size: number) => {
+	return size >= range[0] && size < range[1];
+}
+
+/**
+ *
+ * @param {number} width
+ * @returns {string}
+ */
+export const getDevice = (width: number) => {
+	let pair = bpPairs.find(
+		(pair: number[]) => between([pair[0], pair[1]], width)
+	)
+	console.log(pair, width)
+	return pair ? bps[pair[0]] : bps[1536]
+
+}
+
+

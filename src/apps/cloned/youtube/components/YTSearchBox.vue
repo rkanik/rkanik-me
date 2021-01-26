@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="yt-bg-primary relative h-8 py-1 pl-2 pr-20 w-full max-w-2xl border yt-border-secondary"
+		class="hidden lg:block yt-bg-primary relative h-8 py-1 pl-2 pr-20 w-full max-w-2xl border yt-border-secondary"
 	>
 		<input
 			type="text"

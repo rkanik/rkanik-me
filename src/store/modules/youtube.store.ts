@@ -31,6 +31,8 @@ const actions = {
 	async fetchVideos({ commit, state: { nextPageToken, channels } }: any) {
 		let params: YTVideos = {
 			maxResults: 8,
+			maxWidth: 1080,
+			maxHeight: 720,
 			chart: "mostPopular",
 			part: "snippet,player,contentDetails,statistics",
 		}

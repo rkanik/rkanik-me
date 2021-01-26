@@ -1,10 +1,17 @@
 <template>
 	<header class="yt-header yt-bg-secondary border-b yt-border-secondary">
-		<Flex justify-between items-center class="px-8 h-16">
-			<!-- Logo -->
-			<router-link to="/apps/cloned/youtube">
-				<YTLogo class="w-20" dark />
-			</router-link>
+		<Flex justify-between items-center class="px-4 lg:px-8 h-16">
+			<Flex itemsCenter>
+				<TIconButton
+					md-icon="menu"
+					@click="$emit('menu')"
+					class="mr-4 lg:hidden"
+				/>
+				<!-- Logo -->
+				<router-link to="/apps/cloned/youtube">
+					<YTLogo class="w-20" dark />
+				</router-link>
+			</Flex>
 
 			<!-- Search box -->
 			<YTSearchBox />
