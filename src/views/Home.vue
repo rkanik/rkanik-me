@@ -4,6 +4,9 @@
 		<router-link to="/apps/cloned/youtube" class="text-xl mt-10 text-red-500"
 			>Youtube</router-link
 		>
+		<router-link to="/apps/cloned/twitter" class="text-xl mt-10 text-red-500"
+			>Twitter</router-link
+		>
 	</div>
 </template>
 

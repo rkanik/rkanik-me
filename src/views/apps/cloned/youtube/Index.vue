@@ -3,20 +3,13 @@
 		<YTSidebar />
 		<Flex flex-col class="flex-1 overflow-x-hidden">
 			<YTSuggBar class="p-3" />
-			<YTMain class="p-4">
+			<YTMain @bottom="onScrollbarNearlyBottom" class="p-4">
 				<div class="grid grid-cols-4 gap-4">
-					<YTVideoCard title="Vue JS Crash Course" />
 					<YTVideoCard
-						title="Comedy Natok: Brain Wash | ব্রেইন ওয়াশ | Full Natok | Mosharraf Karim | Sumaiya Shimu"
+						:key="video.id"
+						v-bind="video"
+						v-for="video in $ytVideos.slice(0, 8)"
 					/>
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard
-						title="Comedy Natok: Brain Wash | ব্রেইন ওয়াশ | Full Natok | Mosharraf Karim | Sumaiya Shimu"
-					/>
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard title="Vue JS Crash Course" />
 				</div>
 				<hr class="border-t-2 my-8 yt-border-primary" />
 				<div class="py-4 px-2 text-xl font-bold">Latest YouTube posts</div>
@@ -28,18 +21,11 @@
 				</div>
 				<hr class="border-t-2 my-8 yt-border-primary" />
 				<div class="grid grid-cols-4 gap-4">
-					<YTVideoCard title="Vue JS Crash Course" />
 					<YTVideoCard
-						title="Comedy Natok: Brain Wash | ব্রেইন ওয়াশ | Full Natok | Mosharraf Karim | Sumaiya Shimu"
+						:key="video.id"
+						v-bind="video"
+						v-for="video in $ytVideos.slice(8)"
 					/>
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard
-						title="Comedy Natok: Brain Wash | ব্রেইন ওয়াশ | Full Natok | Mosharraf Karim | Sumaiya Shimu"
-					/>
-					<YTVideoCard title="Vue JS Crash Course" />
-					<YTVideoCard title="Vue JS Crash Course" />
 				</div>
 			</YTMain>
 		</Flex>
@@ -55,6 +41,7 @@ import YTSuggBar from "@/apps/cloned/youtube/components/YTSuggBar.vue";
 import YTSidebar from "@/apps/cloned/youtube/components/YTSidebar.vue";
 import YTVideoCard from "@/apps/cloned/youtube/components/YTVideoCard.vue";
 import YTPostCard from "@/apps/cloned/youtube/components/YTPostCard.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default Vue.extend({
 	name: "Youtube",
@@ -64,6 +51,26 @@ export default Vue.extend({
 		YTSidebar,
 		YTPostCard,
 		YTVideoCard,
+	},
+	data() {
+		return {
+			fetching: false,
+		};
+	},
+	computed: {
+		...mapGetters("YT", ["$ytVideos"]),
+	},
+	created() {
+		this.fetchVideos();
+	},
+	methods: {
+		...mapActions("YT", ["fetchVideos"]),
+		async onScrollbarNearlyBottom() {
+			if (this.fetching) return;
+			this.fetching = true;
+			await this.fetchVideos();
+			this.fetching = false;
+		},
 	},
 });
 </script>

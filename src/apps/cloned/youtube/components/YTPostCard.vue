@@ -40,7 +40,7 @@ export default Vue.extend({
 		},
 		title: {
 			type: String,
-			required: true,
+			required: false,
 		},
 	},
 });

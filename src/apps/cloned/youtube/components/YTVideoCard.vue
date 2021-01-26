@@ -2,14 +2,11 @@
 	<div>
 		<div class="relative">
 			<router-link :to="url">
-				<TImage
-					alt="Video Thumbnail"
-					src="https://i.ytimg.com/vi/Wy9q22isx3U/hq720.jpg?sqp=-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDzxToz1kD_wEdNswQviyjkniGNuA"
-				/>
+				<TImage :alt="title" :src="thumbnail" class="max-h-48 w-full" />
 				<div
 					class="absolute bottom-1 right-1 rounded-sm bg-black bg-opacity-80 text-xs py-1 px-2"
 				>
-					01:08:52
+					{{ duration }}
 				</div>
 			</router-link>
 		</div>
@@ -18,8 +15,8 @@
 				<TImage
 					circle
 					class="h-9 w-9"
-					alt="Channel Thumbnail"
-					src="https://yt3.ggpht.com/ytc/AAUvwng963DN2_MIbKuvMWRrN4KG920h3Y4YHg6KET9vZg=s68-c-k-c0x00ffffff-no-rj"
+					:alt="channel.name"
+					:src="channel.thumbnail"
 				/>
 			</router-link>
 			<div class="ml-3">
@@ -32,25 +29,26 @@
 					<h6
 						class="font-medium text-sm yt-text-secondary flex items-center"
 					>
-						<span class="mr-1">Traversy Media</span>
-						<i class="material-icons text-sm yt-text-secondary"
+						<span class="mr-1">{{ channel.name }}</span>
+						<i
+							v-if="channel.verified"
+							class="material-icons text-sm yt-text-secondary"
 							>check_circle</i
 						>
 					</h6>
 				</router-link>
 				<p class="text-sm yt-text-secondary flex items-center">
-					<span>1M Views</span>
+					<span>{{ views }} Views</span>
 					<span class="mx-1">•</span>
-					<span>2 years ago</span>
+					<span>{{ publishedAt }}</span>
 				</p>
 			</div>
 		</Flex>
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
+<script>
+export default {
 	name: "YTVideoCard",
 	props: {
 		url: {
@@ -61,6 +59,36 @@ export default Vue.extend({
 			type: String,
 			required: true,
 		},
+		thumbnail: {
+			type: String,
+			required: true,
+		},
+		duration: {
+			type: String,
+			required: true,
+		},
+		views: {
+			type: String,
+			required: true,
+		},
+		publishedAt: {
+			type: String,
+			required: true,
+		},
+		channel: {
+			name: {
+				type: String,
+				required: true,
+			},
+			thumbnail: {
+				type: String,
+				required: true,
+			},
+			verified: {
+				type: String,
+				required: true,
+			}
+		},
 	},
-});
+};
 </script>

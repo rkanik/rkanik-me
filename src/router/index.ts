@@ -32,6 +32,17 @@ const routes: Array<RouteConfig> = [
 								component: view('apps/cloned/youtube/Index'),
 							}
 						]
+					},
+					{
+						path: 'twitter',
+						component: app('cloned/twitter/layouts/TWDefault'),
+						children: [
+							{
+								path: '',
+								name: 'TWHome',
+								component: view('apps/cloned/twitter/Index'),
+							}
+						]
 					}
 				]
 			}
