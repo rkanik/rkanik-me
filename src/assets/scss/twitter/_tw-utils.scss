@@ -1,0 +1,54 @@
+// Background colors
+.tw-bg-primary {
+	background-color: var(--tw-bg-primary);
+}
+.tw-bg-secondary {
+	background-color: var(--tw-bg-secondary);
+}
+.tw-bg-secondary-2 {
+	background-color: var(--tw-bg-secondary-2);
+}
+
+// Text colors
+.tw-text-primary {
+	color: var(--tw-text-primary);
+}
+.tw-text-secondary {
+	color: var(--tw-text-secondary);
+}
+
+// Accent colors
+.tw-bg-accent {
+	background-color: var(--tw-accent);
+}
+.tw-text-accent {
+	color: var(--tw-accent);
+}
+.tw-border-accent {
+	border-color: var(--tw-accent);
+}
+.hover\:tw-text-accent:hover {
+	color: var(--tw-accent);
+}
+
+// Placeholder colors
+.tw-placeholder::placeholder {
+	color: var(--tw-placeholder);
+}
+
+// Border colors
+.tw-border {
+	border-color: var(--tw-border);
+}
+
+// Hover
+.tw-hover:hover {
+	background-color: var(--tw-hover) !important;
+}
+
+//
+.tw-container {
+	@include on("xl") {
+		width: 1280px;
+	}
+}

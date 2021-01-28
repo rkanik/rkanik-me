@@ -59,4 +59,4 @@ export default {
 	}
 };
 </script>
-<style src='@/assets/scss/youtube/youtube.scss' lang='scss'/>
+<style src='@/assets/scss/youtube/yt-main.scss' lang='scss'/>

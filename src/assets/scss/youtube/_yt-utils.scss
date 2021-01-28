@@ -1,25 +1,9 @@
-:root {
-	--yt-bg-primary: #181818;
-	--yt-bg-secondary: #202020;
-	--yt-bg-secondary-2: #373737;
-
-	--yt-text-primary: #ffffff;
-	--yt-text-secondary: #aaaaaa;
-	--yt-text-disabled: #717171;
-
-	--yt-placeholder-primary: #888888;
-
-	--yt-border-primary: #303030;
-	--yt-border-secondary: #373737;
-	--yt-border-secondary-2: #4b4b4b;
-}
 .yt-bg-primary {
 	background-color: var(--yt-bg-primary);
 }
 .yt-bg-secondary {
 	background-color: var(--yt-bg-secondary);
 }
-
 .yt-bg-secondary-2 {
 	background-color: var(--yt-bg-secondary-2);
 }
@@ -28,7 +12,6 @@
 		background-color: var(--yt-bg-secondary-2);
 	}
 }
-
 .yt-text-primary {
 	color: var(--yt-text-primary);
 }

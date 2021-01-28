@@ -45,9 +45,25 @@ const routes: Array<RouteConfig> = [
 							{
 								path: '',
 								name: 'TWHome',
-								component: view('apps/cloned/twitter/Index'),
+								component: view('apps/cloned/twitter/TWHome'),
+							},
+							{
+								path: 'explore',
+								name: 'TWExplore',
+								component: view('apps/cloned/twitter/TWExplore'),
 							}
 						]
+					}
+				]
+			},
+			{
+				path: 'fiverr',
+				component: view('apps/fiverr/Fiverr'),
+				children: [
+					{
+						name: 'Vinify',
+						path: 'vinify',
+						component: view('apps/fiverr/Vinify')
 					}
 				]
 			}

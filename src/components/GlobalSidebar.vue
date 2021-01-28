@@ -24,6 +24,7 @@ export default Vue.extend({
 		this.expanded = this.value;
 	},
 	mounted() {
+		// @ts-ignore
 		if (this.expanded) this.$el.style.left = 0;
 		let toggler = this.$el.firstElementChild;
 		window.onmousemove = (e: MouseEvent) => {
