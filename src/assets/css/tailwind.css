@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.blend-dodge {
+	mix-blend-mode: color-dodge;
+}
+.glass-2 {
+	backdrop-filter: blur(8px);
+}
+.max-h-md {
+	max-height: 28rem;
+}

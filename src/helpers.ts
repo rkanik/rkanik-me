@@ -65,9 +65,21 @@ export const getDevice = (width: number) => {
 	let pair = bpPairs.find(
 		(pair: number[]) => between([pair[0], pair[1]], width)
 	)
-	console.log(pair, width)
 	return pair ? bps[pair[0]] : bps[1536]
-
 }
 
-
+interface RandomType {
+	max: number,
+	min: number,
+	excludeMax: boolean
+}
+export const random = ({
+	max, min = 0,
+	excludeMax = true
+}: RandomType): number => {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(
+		Math.random() * (max - min + (excludeMax ? 0 : 1)) + min
+	);
+}

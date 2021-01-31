@@ -1,16 +1,23 @@
 // Responsive Mixins
 $breakpoints-down: (
-   "sm": 640px,
-   "md": 768px,
-   "lg": 1024px,
-   "xl": 1280px,
-   "2xl": 1536px,
+	"sm": 640px,
+	"md": 768px,
+	"lg": 1024px,
+	"xl": 1280px,
+	"2xl": 1536px,
 );
 
+@mixin inset-0 {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
 @mixin on($size) {
-   @media (min-width: map-get(
+	@media (min-width: map-get(
       $breakpoints-down , $size
    )) {
-      @content;
-   }
+		@content;
+	}
 }

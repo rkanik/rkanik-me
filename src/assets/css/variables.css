@@ -1,7 +1,6 @@
 :root {
 	--gray-18: #181818;
 }
-
 .bg-gray-18 {
 	background-color: var(--gray-18);
 }

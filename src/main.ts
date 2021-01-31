@@ -5,7 +5,7 @@ import store from '@/store'
 import components from './components'
 import VueMeta from 'vue-meta'
 import bus from './bus'
-import ResizeMixin from '@/mixins/ResizeMixin.vue'
+//import ResizeMixin from '@/mixins/ResizeMixin.vue'
 
 // pwa
 import '@/registerServiceWorker'
@@ -31,6 +31,6 @@ components.register(Vue)
 new Vue({
 	router,
 	store,
-	mixins: [ResizeMixin],
+	//mixins: [ResizeMixin],
 	render: h => h(App)
 }).$mount('#app')

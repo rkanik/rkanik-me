@@ -1,12 +1,10 @@
-* {
-	transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
-}
-
+// * {
+// 	transition: background-color 0.3s ease-in-out, color 0.1s ease-in-out;
+// }
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 input,
 button {
 	&:focus {
@@ -14,7 +12,10 @@ button {
 		outline: none;
 	}
 }
-
 svg {
 	fill: currentColor;
+}
+.c-i-a-h-c {
+	animation: rotate-full 60s linear infinite;
+	transform: rotate(165deg);
 }
