@@ -40,7 +40,7 @@
 <script lang="ts">
 import Vue from "vue";
 // @ts-ignore
-import Organic from "@/libs/organic-shape-animator";
+import Organic from "@/libs/organic.min";
 export default Vue.extend({
 	name: "Organic",
 	mounted() {

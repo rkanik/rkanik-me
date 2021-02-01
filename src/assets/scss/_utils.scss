@@ -22,3 +22,12 @@
 .blur-2 {
 	backdrop-filter: blur(8px);
 }
+.bg-gray-18 {
+	background-color: var(--gray-18);
+}
+.bg-gray-19 {
+	background-color: var(--gray-19);
+}
+.bg-gray-18.bg-opacity-20 {
+	background-color: rgba(var(--gray-18), 0.2);
+}

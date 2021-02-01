@@ -1,9 +1,4 @@
 :root {
 	--gray-18: #181818;
-}
-.bg-gray-18 {
-	background-color: var(--gray-18);
-}
-.bg-gray-18.bg-opacity-20 {
-	background-color: rgba(var(--gray-18), 0.2);
+	--gray-19: #191919;
 }

@@ -1,7 +1,9 @@
 <template>
-	<div class="landing h-screen overflow-y-auto">
+	<div class="landing h-screen overflow-y-auto text-white">
 		<Header />
 		<HeroSection />
+
+		<AboutSection />
 
 		<div class="bg-green-500 h-screen">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo deserunt
@@ -116,6 +118,7 @@ import Vue from "vue";
 
 import Header from "@/components/Landing/Header.vue";
 import HeroSection from "@/components/Landing/HeroSection.vue";
+import AboutSection from "@/components/Landing/AboutSection.vue";
 
 export default Vue.extend({
 	name: "Landing",
@@ -127,6 +130,7 @@ export default Vue.extend({
 	components: {
 		Header,
 		HeroSection,
+		AboutSection,
 	},
 });
 </script>
