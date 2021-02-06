@@ -12,8 +12,9 @@
 			<router-view />
 		</Flex>
 		<div
-			class="fixed inset-y-0 w-full blur-2 lg:hidden bg-gray-18 bg-opacity-20 z-40 transition-left"
+			@click="sidebar.expanded = false"
 			:class="sidebar.expanded ? 'left-0' : '-left-full'"
+			class="fixed inset-y-0 w-full blur-2 lg:hidden bg-gray-18 bg-opacity-20 z-40 transition-left"
 		></div>
 	</div>
 </template>
@@ -48,6 +49,7 @@ export default {
 			deep: true,
 			immediate: true,
 			handler({ name }) {
+				if (window.innerWidth < 1024) return
 				this.sidebar.type = this.sidebar.types[name];
 			},
 		},

@@ -6,9 +6,9 @@
 				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
 			>
 				<YTVideoCard
-					:key="video.id"
+					:key="videoIndex"
 					v-bind="video"
-					v-for="video in $ytVideos.slice(0, 8)"
+					v-for="(video, videoIndex) in $ytVideos.slice(0, 8)"
 				/>
 			</div>
 			<hr class="border-t-2 my-8 yt-border-primary" />
@@ -22,11 +22,13 @@
 				<YTPostCard />
 			</div>
 			<hr class="border-t-2 my-8 yt-border-primary" />
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+			<div
+				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+			>
 				<YTVideoCard
-					:key="video.id"
+					:key="videoIndex"
 					v-bind="video"
-					v-for="video in $ytVideos.slice(8)"
+					v-for="(video, videoIndex) in $ytVideos.slice(8)"
 				/>
 			</div>
 		</YTMain>

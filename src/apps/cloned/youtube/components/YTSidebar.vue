@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="fixed inset-y-0 z-10 lg:left-0 lg:relative yt-bg-secondary flex-none overflow-x-hidden overflow-y-auto transition-left"
+		class="fixed inset-y-0 z-50 lg:left-0 lg:relative yt-bg-secondary flex-none overflow-x-hidden overflow-y-auto transition-left"
 		:class="classes"
 	>
 		<div class="px-4 my-2 lg:hidden">
