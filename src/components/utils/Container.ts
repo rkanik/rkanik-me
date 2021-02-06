@@ -9,7 +9,7 @@ export default Vue.extend({
 	},
 	render(create: CreateElement): VNode {
 		return create(this.tag, {
-			staticClass: 'container mx-auto',
+			staticClass: 'container mx-auto px-4 sm:px-0',
 		}, this.$slots.default)
 	}
 })

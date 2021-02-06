@@ -64,7 +64,7 @@ export default {
 		...mapGetters("YT", ["$ytVideos"]),
 	},
 	created() {
-		//this.fetchVideos();
+		this.fetchVideos();
 	},
 	methods: {
 		...mapActions("YT", ["fetchVideos"]),

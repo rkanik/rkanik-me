@@ -8,7 +8,6 @@
 					:size="playerSize"
 					v-if="video.id && playerSize"
 				/>
-
 				<div class="pt-4 lg:pb-4 relative">
 					<h2 class="text-xl max-w-screen-sm">{{ video.title }}</h2>
 					<p class="text-sm mt-2 yt-text-secondary flex items-center">
@@ -49,7 +48,7 @@
 		</div>
 		<div
 			style="width: 28rem"
-			class="hidden lg:flex flex-col flex-none h-full p-4 overflow-y-auto yt-bg-secondary shadow space-y-3"
+			class="hidden lg:flex flex-col flex-none h-full p-4 pr-3 overflow-y-auto yt-bg-secondary shadow space-y-1"
 		>
 			<YTListVideoCard
 				:key="video.id"
@@ -66,8 +65,7 @@
 import { mapGetters } from "vuex";
 
 // Helpers and Contstants
-import { bps, yt } from '@/consts';
-import { getDevice } from '@/helpers';
+import { yt } from '@/consts';
 
 // Components
 import YTPlayer from '@/apps/cloned/youtube/components/YTPlayer'

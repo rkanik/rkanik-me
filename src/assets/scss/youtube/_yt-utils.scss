@@ -7,6 +7,11 @@
 .yt-bg-secondary-2 {
 	background-color: var(--yt-bg-secondary-2);
 }
+.hover\:yt-bg-secondary {
+	&:hover {
+		background-color: var(--yt-bg-secondary);
+	}
+}
 .hover\:yt-bg-secondary-2 {
 	&:hover {
 		background-color: var(--yt-bg-secondary-2);
@@ -14,6 +19,11 @@
 }
 .yt-text-primary {
 	color: var(--yt-text-primary);
+}
+.hover\:yt-text-primary {
+	&:hover {
+		color: var(--yt-text-primary);
+	}
 }
 .yt-text-secondary {
 	color: var(--yt-text-secondary);

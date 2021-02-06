@@ -58,7 +58,7 @@
 				MORE FROM YOUTUBE
 			</div>
 			<YTSidebarItem :type="type" md-icon="sports_esports" text="Gaming" />
-			<YTSidebarItem md-icon="wifi" text="Live" />
+			<YTSidebarItem :type="type" md-icon="wifi" text="Live" />
 		</div>
 		<hr class="border-t-1 yt-border-secondary my-4" />
 		<div class="settings">

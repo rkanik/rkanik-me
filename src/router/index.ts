@@ -35,6 +35,11 @@ const routes: Array<RouteConfig> = [
 								path: 'watch',
 								name: 'YTWatch',
 								component: view('apps/cloned/youtube/Watch'),
+							},
+							{
+								path: 'search',
+								name: 'YTSearch',
+								component: view('apps/cloned/youtube/Search'),
 							}
 						]
 					},

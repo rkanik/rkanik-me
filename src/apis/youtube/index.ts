@@ -3,20 +3,34 @@ import { count } from '@/consts'
 import { YTVideos } from '../types'
 import { howAgo } from '@/helpers'
 
-const BASE_URL = process.env.VUE_APP_YT_DATA_API_BASE_URL
-const API_KEY = process.env.VUE_APP_YT_DATA_API_API_KEY
+const youtube = axios.create({ baseURL: process.env.VUE_APP_YT_DATA_API_BASE_URL })
+const suggest = axios.create({
+	baseURL:
+		process.env.VUE_APP_CORS_PROXY +
+		process.env.VUE_APP_SUGGEST_QUERIES
+})
 
-const youtube = axios.create({ baseURL: BASE_URL })
 youtube.interceptors.request.use(config => ({
 	...config, params: {
 		...config.params,
-		key: API_KEY
+		key: process.env.VUE_APP_YT_DATA_API_API_KEY
+	}
+}));
+
+suggest.interceptors.request.use(config => ({
+	...config, params: {
+		...config.params,
+		ds: 'yt', client: 'chrome',
 	}
 }));
 
 // Make a GET to the API
 const get = async (endpoint: string, params = {}) => {
 	const data = (await youtube.get(endpoint, { params })).data;
+	return { error: false, data };
+};
+const getSuggest = async (endpoint: string, params = {}) => {
+	const data = (await suggest.get(endpoint, { params })).data;
 	return { error: false, data };
 };
 
@@ -54,6 +68,9 @@ const views = (v: number) => {
 }
 
 export default {
+	async suggestions(queries: { q: String }) {
+		return await handle(getSuggest, '/complete/search', queries)
+	},
 	async videos(queries: YTVideos) {
 		return await handle(get, '/videos', queries)
 	},

@@ -1,5 +1,12 @@
 <template>
-	<div id="yt-player" />
+	<div>
+		<div id="yt-player" />
+		<div
+			v-if="!isReady"
+			class="yt-bg-primary"
+			:style="`height:${size.height}px;width:${size.width}px`"
+		></div>
+	</div>
 </template>
 
 <script>
@@ -23,10 +30,11 @@ export default {
 	},
 	data() {
 		return {
-			scriptSrc: "http://www.youtube.com/iframe_api",
+			scriptSrc: "https://www.youtube.com/iframe_api",
 			scriptId: 'yt-iframe-player-api',
 			player: null,
-			iframe: null
+			iframe: null,
+			isReady: false
 		}
 	},
 	created() {
@@ -82,6 +90,7 @@ export default {
 					'onStateChange': this.onStateChange
 				}
 			});
+			this.isReady = true
 			this.iframe = document.getElementById('yt-player')
 		},
 		injectScript() {
