@@ -69,6 +69,11 @@ const routes: Array<RouteConfig> = [
 						name: 'Vinify',
 						path: 'vinify',
 						component: view('apps/fiverr/Vinify')
+					},
+					{
+						name: 'DriveNListen',
+						path: 'drivenlisten',
+						component: view('apps/fiverr/DriveNListen')
 					}
 				]
 			}
