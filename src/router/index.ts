@@ -74,6 +74,11 @@ const routes: Array<RouteConfig> = [
 						name: 'DriveNListen',
 						path: 'drivenlisten',
 						component: view('apps/fiverr/DriveNListen')
+					},
+					{
+						name: 'ShoppingCart',
+						path: 'shopping-cart',
+						component: view('apps/fiverr/ShoppingCart')
 					}
 				]
 			}
