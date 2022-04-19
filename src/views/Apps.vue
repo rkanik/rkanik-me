@@ -29,7 +29,7 @@
 						class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-black bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-500"
 					>
 						<h3 class=" text-2xl">{{ app.name }}</h3>
-						<p class="text-base text-gray-400">{{ app.description }}</p>
+						<p class="text-base text-gray-400 mx-4">{{ app.description }}</p>
 					</div>
 				</router-link>
 			</div>
@@ -67,6 +67,14 @@ export default Vue.extend({
 				thumbnail:
 					"https://i.ibb.co/q0kLKHL/screencapture-localhost-8080-apps-cloned-twitter-2022-04-20-00-31-58.png",
 				keywords: ["vue", "html5", "css3", "tailwindcss"]
+			},
+			{
+				name: "Discord Clone",
+				description:
+					"Discord static clone using tailwindcss. Discord static clone using tailwindcss",
+				link: "/discord",
+				thumbnail: "https://i.ibb.co/0qmqxnf/discord.png",
+				keywords: ["html5", "tailwindcss"]
 			}
 		]
 	}),
