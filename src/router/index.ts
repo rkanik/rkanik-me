@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Landing from '@/views/Landing.vue'
 
-import { view, app } from '../helpers'
+import { view, app, layout } from '../helpers'
 
 Vue.use(VueRouter)
 
@@ -15,7 +15,11 @@ const routes: Array<RouteConfig> = [
 	{
 		path: '/apps',
 		name: 'Apps',
-		component: view('apps/Apps'),
+		component: view('Apps'),
+	},
+	{
+		path: '/apps',
+		component: layout('EmptyLayout'),
 		children: [
 			{
 				path: 'cloned',
@@ -79,6 +83,11 @@ const routes: Array<RouteConfig> = [
 						name: 'ShoppingCart',
 						path: 'shopping-cart',
 						component: view('apps/fiverr/ShoppingCart')
+					},
+					{
+						name: 'CarCat',
+						path: 'carcat',
+						component: view('apps/fiverr/CarCat')
 					}
 				]
 			}

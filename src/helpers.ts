@@ -9,6 +9,58 @@ const units = [
 	['year', 31536000000],
 ]
 
+export const loadImgAsBase64 = (url: string, callback: (data: string | null) => void) => {
+	let canvas = document.createElement('canvas');
+	let img = document.createElement('img');
+	img.setAttribute('crossorigin', 'anonymous');
+	img.src = 'https://cors-anywhere.herokuapp.com/' + url;
+
+	img.onload = () => {
+		canvas.height = img.height;
+		canvas.width = img.width;
+		let context = canvas.getContext('2d');
+		if (context) {
+			context.drawImage(img, 0, 0);
+			let dataURL = canvas.toDataURL('image/png');
+			callback(dataURL);
+		}
+		else callback(null)
+	};
+}
+
+// export const generatePDF = (el: Element) => {
+
+// 	const rect = el.getBoundingClientRect()
+
+// 	var margin = 15;
+// 	var pdfWidth = rect.width + (margin * 2);
+// 	var pdfHeight = (pdfWidth * 1.5) + (margin * 2);
+
+// 	var totalPDFPages = Math.ceil(rect.height / pdfHeight) - 1;
+
+// 	html2canvas(this.$refs.mpdf, { allowTaint: true }).then((canvas) => {
+// 		canvas.getContext('2d');
+
+// 		var imgData = canvas.toDataURL("image/jpeg", 1.0);
+// 		var pdf = new jsPDF('p', 'px', [pdfWidth, pdfHeight]);
+// 		pdf.addImage(imgData, 'JPG', margin, margin, rect.width, rect.height);
+
+// 		for (var i = 1; i <= totalPDFPages; i++) {
+// 			pdf.addPage([pdfWidth, pdfHeight], 'p');
+// 			pdf.addImage(
+// 				imgData, 'JPG', margin,
+// 				-(pdfHeight * i) + (margin * 4),
+// 				rect.width,
+// 				rect.height
+// 			);
+// 		}
+
+// 		pdf.save("survey-answer-details" + Date.now());
+// 		this.downloading = false
+// 		this.download = false
+// 	});
+// }
+
 const getPairs = (arr: any[]): any[][] => {
 	let start = 0, pairs = []
 	while (start < (arr.length - 1)) {
