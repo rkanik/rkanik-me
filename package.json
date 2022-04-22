@@ -18,9 +18,11 @@
 		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
 		"vue": "^2.6.11",
 		"vue-clickaway": "2.1.0",
+		"vue-js-modal": "^2.0.1",
 		"vue-meta": "^2.4.0",
 		"vue-router": "^3.2.0",
 		"vue-youtube": "^1.4.0",
+		"vuelpers": "^2.3.6",
 		"vuex": "^3.4.0",
 		"vuex-persistedstate": "^4.0.0-beta.3"
 	},
@@ -39,7 +41,7 @@
 		"vue-template-compiler": "^2.6.11"
 	},
 	"engines": {
-		"node": "12.22.12"
+		"node": "14"
 	},
 	"browserslist": [
 		"> 1%",

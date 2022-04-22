@@ -1,36 +1,39 @@
-import Vue from 'vue'
-import App from '@/App.vue'
-import router from '@/router'
-import store from '@/store'
-import components from './components'
-import VueMeta from 'vue-meta'
-import bus from './bus'
+import Vue from "vue";
+import App from "@/App.vue";
+import router from "@/router";
+import store from "@/store";
+import components from "./components";
+import VueMeta from "vue-meta";
+import bus from "./bus";
 //import ResizeMixin from '@/mixins/ResizeMixin.vue'
 
 // pwa
-import '@/registerServiceWorker'
+import "@/registerServiceWorker";
 
 // styles
-import '@/assets/css/variables.css'
-import '@/assets/css/tailwind.css'
-import '@/assets/scss/main.scss'
+import "@/assets/css/variables.css";
+import "@/assets/css/tailwind.css";
+import "@/assets/scss/main.scss";
+
+import Vmodal from "vue-js-modal";
 
 // prod tip
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 // bus
 // @ts-ignore
-window.bus = bus
+window.bus = bus;
 
 // Plugins
-Vue.use(VueMeta)
+Vue.use(Vmodal);
+Vue.use(VueMeta);
 
 // global components
-components.register(Vue)
+components.register(Vue);
 
 new Vue({
 	router,
 	store,
 	//mixins: [ResizeMixin],
 	render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");
