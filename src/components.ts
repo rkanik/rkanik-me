@@ -5,14 +5,14 @@ import TIconButton from "@/components/custom/TIconButton.vue";
 // TS
 import Flex from "@/components/utils/Flex";
 import Container from "@/components/utils/Container";
-import { registerComponents } from "vuelpers";
+// import { registerComponents } from "vuelpers";
 
 export default {
 	register(Vue: any) {
-		registerComponents(
-			require.context("./components", true, /Base[A-Z]\w+\.(vue|js|ts)$/),
-			Vue
-		);
+		// registerComponents(
+		// 	require.context("./components", true, /Base[A-Z]\w+\.(vue|js|ts)$/),
+		// 	Vue
+		// );
 
 		Vue.component(TImage.name, TImage);
 		Vue.component(TIconButton.name, TIconButton);

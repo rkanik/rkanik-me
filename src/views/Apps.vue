@@ -27,7 +27,7 @@
 					<img
 						:alt="app.name"
 						:src="app.thumbnail"
-						class="w-full h-full object-cover object-top transform transition-all duration-500 scale-100 group-hover:scale-150"
+						class="w-full h-full object-cover object-left-top transform transition-all duration-500 scale-100 group-hover:scale-150"
 					/>
 					<div
 						class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 text-white bg-black bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-500 px-3"
@@ -76,6 +76,15 @@ export default Vue.extend({
 	data: () => ({
 		currentApp: null,
 		apps: [
+			{
+				name: "Animated Sidebar",
+				description:
+					"Animated sidebar example implemented using vue3 typescript tailwindcss",
+				tag: "a",
+				link: "https://animated-sidebar.netlify.app/",
+				thumbnail: "https://i.ibb.co/V308npq/chrome-capture-2022-3-29.gif",
+				keywords: ["vue", "html5", "css3", "tailwindcss", "typescript"]
+			},
 			{
 				name: "Tcobro Communications",
 				description:
