@@ -77,6 +77,16 @@ export default Vue.extend({
 		currentApp: null,
 		apps: [
 			{
+				name: "Makerkids",
+				description:
+					"Online class booking system for MakerKids. A web application for parent to manage their children's classes.",
+				tag: "a",
+				link: "https://devrk-makerkids.netlify.app/book",
+				thumbnail:
+					"https://i.ibb.co/0qCx8NY/makerkids-booking-confirm-page-desktop.png",
+				keywords: ["react", "chakra-ui", "typescript"]
+			},
+			{
 				name: "Animated Sidebar",
 				description:
 					"Animated sidebar example implemented using vue3 typescript tailwindcss",
